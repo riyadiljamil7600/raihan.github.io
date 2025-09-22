@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV - Harry Shawan</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+    }
+
+    .cv-container {
+      display: flex;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    /* Tombol bahasa */
+    .lang-switcher {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .lang-switcher button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: white;
+      cursor: pointer;
+    }
+    .lang-switcher button:hover {
+      background: #555;
+    }
+
+    /* Sidebar kiri */
+    .left-panel {
+      width: 35%;
+      background: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .left-panel img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      margin: 20px 0 10px;
+      font-size: 18px;
+      font-weight: bold;
+      border-bottom: 2px solid #777;
+      padding-bottom: 5px;
+      text-align: left;
+    }
+
+    .left-panel p {
+      margin: 8px 0;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    /* Panel kanan */
+    .right-panel {
+      width: 65%;
+      padding: 20px;
+    }
+
+    .right-panel h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #333;
+    }
+
+    .subtitle {
+      color: #777;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .content-section {
+      margin-bottom: 25px;
+    }
+
+    .content-section h2 {
+      font-size: 20px;
+      background: #333;
+      color: white;
+      padding: 6px 10px;
+      display: inline-block;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .content-section p, li {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+    }
+
+    th, td {
+      border: 1px solid #bbb;
+      padding: 8px;
+      text-align: center;
+    }
+
+    /* Progress bar */
+    .progress {
+      width: 100%;
+      background-color: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 15px;
+    }
+
+    .progress-bar {
+      height: 15px;
+      text-align: center;
+      color: white;
+      font-size: 11px;
+      line-height: 15px;
+    }
+
+    .bar-acc { width: 95%; background-color: #ff9800; }
+    .bar-soft { width: 90%; background-color: #2196f3; }
+    .bar-office { width: 85%; background-color: #4caf50; }
+    .bar-tech { width: 75%; background-color: #9c27b0; }
+
+    canvas {
+      margin-top: 20px;
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <!-- Tombol Pilihan Bahasa -->
+    <div class="lang-switcher">
+      <button onclick="changeLang('id')">🇮🇩 Indonesia</button>
+      <button onclick="changeLang('en')">🇬🇧 English</button>
+      <button onclick="changeLang('jv')">🟤 Jawa</button>
+      <button onclick="changeLang('ar')">🇸🇦 عرب</button>
+    </div>
+
+    <!-- Panel kiri -->
+    <div class="left-panel">
+      <img src="hann1.png" alt="Foto Profil">
+      <h2 class="lang"
+        data-id="Riyadil Jamil Ar-Raihan"
+        data-en="Riyadil Jamil Ar-Raihan"
+        data-jv="Riyadil Jamil Ar-Raihan"
+        data-ar="رياضيل جميل الرّايحان">Riyadil Jamil Ar-Raihan</h2>
+
+      <p class="lang"
+        data-id="Pekalongan, 31 April 2009"
+        data-en="Pekalongan, April 31 2009"
+        data-jv="Pekalongan, 31 April 2009"
+        data-ar="بكالونغان، ٣١ أبريل ٢٠٠٩">Pekalongan, 31 April 2009</p>
+
+      <div class="section-title lang"
+        data-id="Kontak" data-en="Contact" data-jv="Kontak" data-ar="الاتصال">Kontak</div>
+      <p>@hann</p>
+      <p>+62878-xxxx-xxxx</p>
+      <p>hutaomywife@gmail.com</p>
+      <p class="lang"
+        data-id="Desa Pacar, Kec. Tirto, Kab. Pekalongan"
+        data-en="Pacar Village, Tirto District, Pekalongan Regency"
+        data-jv="Desa Pacar, Kec. Tirto, Kab. Pekalongan"
+        data-ar="قرية باكار، مقاطعة تيرتو، بكالونغان">Desa Pacar, Kec. Tirto, Kab. Pekalongan</p>
+
+      <div class="section-title lang"
+        data-id="Skill" data-en="Skills" data-jv="Ketrampilan" data-ar="المهارات">Skill</div>
+      <p>Accounting</p><div class="bar"><span style="width:85%"></span></div>
+      <p>Software</p><div class="bar"><span style="width:80%"></span></div>
+      <p>MS Office</p><div class="bar"><span style="width:90%"></span></div>
+      <p class="lang"
+        data-id="Teknologi" data-en="Technology" data-jv="Teknologi" data-ar="تكنولوجيا">Teknologi</p>
+      <div class="bar"><span style="width:75%"></span></div>
+
+      <div class="section-title lang"
+        data-id="Motto" data-en="Motto" data-jv="Motto" data-ar="شعار">Motto</div>
+      <div class="lang"
+        data-id="Diam kadang lebih kuat daripada seribu kata."
+        data-en="Silence is sometimes stronger than a thousand words."
+        data-jv="Meneng kadhang luwih kuwat tinimbang sewu tembung."
+        data-ar="الصمت أحيانًا أقوى من ألف كلمة.">Diam kadang lebih kuat daripada seribu kata.</div>
+
+      <div class="section-title lang"
+        data-id="Hobi & Minat" data-en="Hobbies & Interests" data-jv="Hobi & Minat" data-ar="الهوايات والاهتمامات">Hobi & Minat</div>
+      <p>📷 Fotografi</p>
+      <p>🎵 Musik</p>
+      <p>📖 Membaca manga</p>
+    </div>
+
+    <!-- Panel kanan -->
+    <div class="right-panel">
+      <h1 class="lang"
+        data-id="Riyadil Jamil Ar-Raihan"
+        data-en="Riyadil Jamil Ar-Raihan"
+        data-jv="Riyadil Jamil Ar-Raihan"
+        data-ar="رياضيل جميل الرّايحان">Riyadil Jamil Ar-Raihan</h1>
+
+      <div class="subtitle lang"
+        data-id="Pekalongan, 31 April 2009"
+        data-en="Pekalongan, April 31 2009"
+        data-jv="Pekalongan, 31 April 2009"
+        data-ar="بكالونغان، ٣١ أبريل ٢٠٠٩">Pekalongan, 31 April 2009</div>
+
+      <div class="content-section">
+        <h2 class="lang"
+          data-id="Identitas diri" data-en="Personal Information" data-jv="Identitas Diri" data-ar="المعلومات الشخصية">Identitas diri</h2>
+        <ul>
+          <li class="lang"
+            data-id="Nama: Riyadil Jamil Ar-Raihan"
+            data-en="Name: Riyadil Jamil Ar-Raihan"
+            data-jv="Jeneng: Riyadil Jamil Ar-Raihan"
+            data-ar="الاسم: رياضيل جميل الرّايحان">Nama: Riyadil Jamil Ar-Raihan</li>
+          <li class="lang"
+            data-id="TTL: Pekalongan, 30 April 2009"
+            data-en="Birth: Pekalongan, April 30 2009"
+            data-jv="Lair: Pekalongan, 30 April 2009"
+            data-ar="الميلاد: بكالونغان، ٣٠ أبريل ٢٠٠٩">TTL: Pekalongan, 30 April 2009</li>
+          <li class="lang"
+            data-id="Alamat: Desa Pacar, Kec. Tirto, Kab. Pekalongan"
+            data-en="Address: Pacar Village, Tirto District, Pekalongan Regency"
+            data-jv="Alamat: Desa Pacar, Kec. Tirto, Kab. Pekalongan"
+            data-ar="العنوان: قرية باكار، مقاطعة تيرتو، بكالونغان">Alamat: Desa Pacar, Kec. Tirto, Kab. Pekalongan</li>
+          <li>Email: hutaomywife@gmail.com</li>
+          <li>Telp: +62878-xxxx-xxxx</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="lang" data-id="Profil" data-en="Profile" data-jv="Profil" data-ar="الملف الشخصي">Profil</h2>
+        <p class="lang"
+          data-id="Saya seorang siswa dari SMK Maarif NU Tirto. Memiliki keahlian dalam desain website dan membuat virtual private server. Mudah beradaptasi, penyabar, kreatif, praktis, dan pekerja keras."
+          data-en="I am a student at SMK Maarif NU Tirto. Skilled in website design and creating virtual private servers. Adaptive, patient, creative, practical, and hardworking."
+          data-jv="Aku siswa saka SMK Maarif NU Tirto. Pinter desain web lan nggawe server virtual pribadi. Gampang adaptasi, sabar, kreatif, praktis, lan sregep."
+          data-ar="أنا طالب في مدرسة معارف NU تيرتو. ماهر في تصميم المواقع وإنشاء الخوادم الخاصة الافتراضية. سريع التكيف، صبور، مبدع، عملي، ومجتهد.">Saya seorang siswa dari SMK Maarif NU Tirto. Memiliki keahlian dalam desain website dan membuat virtual private server. Mudah beradaptasi, penyabar, kreatif, praktis, dan pekerja keras.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="lang" data-id="Cita-cita" data-en="Dreams" data-jv="Cita-cita" data-ar="الطموحات">Cita-cita</h2>
+        <p class="lang"
+          data-id="Ingin menjadi profesional player di game Mobile Legend yang dikenal di seluruh dunia."
+          data-en="Aspire to become a professional Mobile Legends player recognized worldwide."
+          data-jv="Kepingin dadi pemain profesional Mobile Legend sing dikenal sak donya."
+          data-ar="أطمح أن أصبح لاعبًا محترفًا في لعبة موبايل ليجند معروفًا في جميع أنحاء العالم.">Ingin menjadi profesional player di game Mobile Legend yang dikenal di seluruh dunia.</p>
+      </div>
+
+      <div class="content-section">
+        <h2 class="lang" data-id="Riwayat Pendidikan" data-en="Education History" data-jv="Riwayat Sekolah" data-ar="التعليم">Riwayat Pendidikan</h2>
+        <table>
+          <tr><th>Tahun</th><th class="lang" data-id="Jenjang" data-en="Level" data-jv="Jenjang" data-ar="المستوى">Jenjang</th><th class="lang" data-id="Institusi" data-en="Institution" data-jv="Sekolah" data-ar="المؤسسة">Institusi</th></tr>
+          <tr><td>2015-2021</td><td>SD</td><td>SD Islam 05</td></tr>
+          <tr><td>2021-2024</td><td>SMP</td><td>SMP Mahad Islam Pekalongan</td></tr>
+          <tr><td>2024-sekarang</td><td>SMK</td><td>SMK Maarif NU Tirto</td></tr>
+        </table>
+      </div>
+
+      <div class="content-section">
+        <h2 class="lang" data-id="Pengalaman" data-en="Experience" data-jv="Pengalaman" data-ar="الخبرات">Pengalaman</h2>
+        <ul>
+          <li>2021-2024 - Adiwiyata</li>
+          <li>2021-2024 - Palang Merah Remaja</li>
+          <li>2021-2022 - Wakil Osis</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2 class="lang" data-id="Keterampilan (Detail)" data-en="Skills (Detail)" data-jv="Ketrampilan (Detail)" data-ar="المهارات (تفصيل)">Keterampilan (Detail)</h2>
+        <table>
+          <tr><th>Keterampilan</th><th>Level</th><th>Progress</th></tr>
+          <tr><td>B.Inggris</td><td>95%</td><td><div class="progress"><div class="progress-bar bar-acc"></div></div></td></tr>
+          <tr><td>B.Indonesia</td><td>90%</td><td><div class="progress"><div class="progress-bar bar-soft"></div></div></td></tr>
+          <tr><td>Editing</td><td>85%</td><td><div class="progress"><div class="progress-bar bar-office"></div></div></td></tr>
+          <tr><td>B.Jepang</td><td>75%</td><td><div class="progress"><div class="progress-bar bar-tech"></div></div></td></tr>
+        </table>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="content-section">
+        <h2 class="lang" data-id="Harapan Masa Depan" data-en="Future Hopes" data-jv="Harapan Mburi" data-ar="آمال المستقبل">Harapan Masa Depan</h2>
+        <p class="lang"
+          data-id="Membangun karier yang stabil, tinggal dan bekerja di Jepang."
+          data-en="Build a stable career, live and work in Japan."
+          data-jv="Nggawe karir sing ajeg, urip lan kerja ing Jepang."
+          data-ar="بناء مسيرة مهنية مستقرة، والعيش والعمل في اليابان.">Membangun karier yang stabil, tinggal dan bekerja di Jepang.</p>
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Ganti bahasa
+    function changeLang(lang) {
+      document.querySelectorAll(".lang").forEach(el => {
+        if (el.dataset[lang]) {
+          el.textContent = el.dataset[lang];
+        }
+      });
+    }
+
+    // Grafik Batang
+    const ctxBar = document.getElementById('barChart');
+    new Chart(ctxBar, {
+      type: 'bar',
+      data: {
+        labels: ['B.Inggris','B.Indonesia','Editing','B.Jepang'],
+        datasets: [{
+          label: 'Skill (%)',
+          data: [95, 90, 85, 75],
+          backgroundColor: ['#ff9800','#2196f3','#4caf50','#9c27b0']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: { y: { beginAtZero: true, max: 100 } }
+      }
+    });
+
+    // Grafik Pie
+    const ctxPie = document.getElementById('pieChart');
+    new Chart(ctxPie, {
+      type: 'pie',
+      data: {
+        labels: ['Game','Tidur','Badminton','Membaca'],
+        datasets: [{
+          data: [40,30,20,10],
+          backgroundColor: ['#2196f3','#ffeb3b','#4caf50','#f44336']
+        }]
+      }
+    });
+  </script>
+</body>
+</html>
